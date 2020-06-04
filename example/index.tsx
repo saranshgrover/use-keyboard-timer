@@ -6,7 +6,7 @@ import useKeyboarTimer from '../src/';
 const settings = {
   timerInput: 'timer',
   inspection: 'always',
-  timerUpdate: 'seconds',
+  timerUpdate: 'deciseconds',
   timeToRelease: 'stackmat',
 };
 

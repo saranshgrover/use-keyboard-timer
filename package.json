@@ -51,5 +51,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/saranshgrover/use-keyboard-timer"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }

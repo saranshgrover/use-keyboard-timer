@@ -8,7 +8,8 @@ declare namespace Timer {
   type timerUpdate =
     | 'seconds'
     | 'centiseconds'
-    | 'millisecond'
+    | 'milliseconds'
+    | 'deciseconds'
     | 'none'
     | number; // a number means ever X seconds
   type timeToRelease = 'none' | 'stackmat';
