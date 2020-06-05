@@ -18,7 +18,7 @@ const settings = {
   timeToRelease: 'stackmat',
 };
 
-const { time, inspectionTime, state, isTiming } = useKeyboardTimer(settings);
+const { time, inspectionTime, state, isTiming, dnf, plusTwo } = useKeyboardTimer(settings);
 
 return (
   <div>
