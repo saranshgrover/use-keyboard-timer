@@ -2,6 +2,7 @@ import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import useKeyboarTimer from '../src/';
+import { useState } from 'react';
 
 const settings = {
   timerInput: 'timer',
@@ -11,6 +12,10 @@ const settings = {
 };
 
 const App = () => {
+  const [times, setTimes] = useState<number[]>([]);
+  function onCompleteCallback(time) {
+    setTimes([...times, time]);
+  }
   const {
     time,
     state,
@@ -18,11 +23,20 @@ const App = () => {
     inspectionTime,
     isTiming,
     plusTwo,
-  } = useKeyboarTimer(settings);
+  } = useKeyboarTimer(settings, onCompleteCallback);
   return (
-    <div>
-      {`Time: ${time} \n State: ${state} \n Inspection: ${inspectionTime} \n DNF: ${dnf} \n Plus 2: ${plusTwo}`}
-    </div>
+    <>
+      <div>
+        {`Time: ${time} \n State: ${state} \n Inspection: ${inspectionTime} \n DNF: ${dnf} \n Plus 2: ${plusTwo}`}
+      </div>
+      <br />
+      <br />
+      <ul>
+        {times.map((time, index) => (
+          <li key={index}>{`${index+1}. ${time} ms`}</li>
+        ))}
+      </ul>
+    </>
   );
 };
 

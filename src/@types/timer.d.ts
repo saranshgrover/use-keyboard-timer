@@ -1,4 +1,9 @@
 declare namespace Timer {
+
+  interface TimerPenalty {
+		type: 'DNF' | 'DNS' | '+2'
+		amount?: number
+	}
   interface TimerSettings {
     timerInput: 'manual' | 'timer' | 'stackmat';
     inspection: 'always' | 'never' | 'nonbld';
