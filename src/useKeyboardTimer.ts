@@ -157,11 +157,11 @@ export default function useKeyboardTimer(
 			? { type: '+2', amount: 2 }
 			: undefined
 		onCompleteCallback(newTime, penalty)
+		dnf.current = false
+		plusTwo.current = false
 	}
 
 	function startTimer() {
-		dnf.current = false
-		plusTwo.current = false
 		setIsTiming(true)
 		setState('STARTED')
 		if (intervalRef.current) {
