@@ -16,6 +16,7 @@ const settings = {
   inspection: 'always',
   timerUpdate: 'deciseconds',
   timeToRelease: 'stackmat',
+  targetComponentID: 'timer'
 };
 
 const { time, inspectionTime, state, isTiming, dnf, plusTwo } = useKeyboardTimer(settings);
@@ -27,15 +28,17 @@ return (
 );
 ```
 
+The `targetComponentID` indicates the value of the `id` field of the HTML element in which the component using `useKeyboardTimer` resides. It cannot refer to an HTML element within the component.
+
 The `settings` paramater takes an object of the following `TimerSettings` type:
 
 ```ts
 interface TimerSettings {
-  layout: 'drawer' | 'divider3' | 'divider2' | 'simple';
   timerInput: 'manual' | 'timer' | 'stackmat';
   inspection: 'always' | 'never' | 'nonbld';
   timerUpdate: timerUpdate;
   timeToRelease: timeToRelease;
+  targetComponentID: string
 }
 type timerUpdate = 'seconds' | 'centiseconds' | 'millisecond' | 'none' | number; // a number means ever X ms
 type timeToRelease = 'none' | 'stackmat';
