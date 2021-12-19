@@ -1,7 +1,7 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import useKeyboarTimer from '../src/';
+import useKeyboardTimer from '../src/';
 import { useState } from 'react';
 
 const settings = {
@@ -9,6 +9,7 @@ const settings = {
   inspection: 'always',
   timerUpdate: 'deciseconds',
   timeToRelease: 'stackmat',
+  targetComponentID: 'timer'
 };
 
 const App = () => {
@@ -23,10 +24,10 @@ const App = () => {
     inspectionTime,
     isTiming,
     plusTwo,
-  } = useKeyboarTimer(settings, onCompleteCallback);
+  } = useKeyboardTimer(settings, onCompleteCallback);
   return (
     <>
-      <div>
+      <div id='timer'>
         {`Time: ${time} \n State: ${state} \n Inspection: ${inspectionTime} \n DNF: ${dnf} \n Plus 2: ${plusTwo}`}
       </div>
       <br />

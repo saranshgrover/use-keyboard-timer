@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export default function useTouchStart() {
+export default function useTouchStart(targetComponentID: string) {
 	// State for keeping track of whether key is pressed
 	const [touched, setTouched] = useState(false)
 
@@ -14,12 +14,13 @@ export default function useTouchStart() {
 
 	// Add event listeners
 	useEffect(() => {
-		window.addEventListener('touchstart', startHandler)
-		window.addEventListener('touchend', endHandler)
+		const targetComponent = document.getElementById(targetComponentID)!
+		targetComponent.addEventListener('touchstart', startHandler)
+		targetComponent.addEventListener('touchend', endHandler)
 		// Remove event listeners on cleanup
 		return () => {
-			window.removeEventListener('touchstart', startHandler)
-			window.removeEventListener('touchend', endHandler)
+			targetComponent.removeEventListener('touchstart', startHandler)
+			targetComponent.removeEventListener('touchend', endHandler)
 		}
 	}, []) // Empty array ensures that effect is only run on mount and unmount
 

@@ -9,6 +9,7 @@ declare namespace Timer {
     inspection: 'always' | 'never' | 'nonbld';
     timerUpdate: timerUpdate;
     timeToRelease: timeToRelease;
+    targetComponentID: string;
   }
   type timerUpdate =
     | 'seconds'

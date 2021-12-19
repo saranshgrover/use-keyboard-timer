@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import useTouchStart from './useTouchStart'
 
-export default function useLongKeyPress(ms: number) {
-	const pressed = useTouchStart()
+export default function useLongKeyPress(ms: number, targetComponentID: string) {
+	const pressed = useTouchStart(targetComponentID)
 	const [longPressed, setLongPressed] = useState(false)
 	useEffect(() => {
 		if (pressed && ms > 0) {

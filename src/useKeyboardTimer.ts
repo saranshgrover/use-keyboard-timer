@@ -83,13 +83,14 @@ export default function useKeyboardTimer(
 	const [inspectionTime, setInspectionTime] = useState(15)
 	const inspectionTimeRef = useRef<number>(inspectionTime)
 	inspectionTimeRef.current = inspectionTime
-	const spacebarPressed = useKeyPress(' ')
+	const spacebarPressed = useKeyPress(' ', settings.targetComponentID)
 	const spacebarLongPressed = useLongKeyPress(
 		' ',
-		timeToHold(settings.timeToRelease)
+		timeToHold(settings.timeToRelease),
+		settings.targetComponentID
 	)
-	const touched = useTouchStart()
-	const longTouched = useLongTouchStart(timeToHold(settings.timeToRelease))
+	const touched = useTouchStart(settings.targetComponentID)
+	const longTouched = useLongTouchStart(timeToHold(settings.timeToRelease), settings.targetComponentID)
 	const msUpdate = getTimerUpdate(settings.timerUpdate)
 	useEffect(() => {
 		const inspection = settings.inspection === 'always'
